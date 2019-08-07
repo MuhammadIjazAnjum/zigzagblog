@@ -25,25 +25,24 @@
         } ?></h1>
   <?php 
     $i=0;
-    
-      while (have_posts()): the_post();
-        $i++;
-        if($i % 2 !=0){
-          $class_left_right='grid_post_full caption_left  d-lg-flex ';
-        }else{
-          $class_left_right='grid_post_full caption_left flex-md-row-reverse d-lg-flex';
-        }
-  
-  
-  if(has_post_format('aside')):
-    require get_template_directory().'/template-parts/content-aside.php';
-  elseif(has_post_format('gallery')):
-    require get_template_directory().'/template-parts/content-gallery.php';
-  else:
-    require get_template_directory().'/template-parts/content.php';
-  endif;
+    while (have_posts()): the_post();
+      $i++;
+      if($i % 2 !=0){
+        $class_left_right='grid_post_full caption_left  d-lg-flex ';
+      }else{
+        $class_left_right='grid_post_full caption_left flex-md-row-reverse d-lg-flex';
+      }
+      // if(has_post_format('aside')):
+      //   get_template_part('/template-parts/content','aside');
+      //   // require get_template_directory().'/template-parts/content-aside.php';
+      // elseif(has_post_format('gallery')):
+      //   get_template_part('/template-parts/content','gallery');
+      //   // require get_template_directory().'/template-parts/content-gallery.php';
+      // else:
+        // get_template_part('/template-parts/content');
+        require get_template_directory().'/template-parts/content.php';
+      // endif;
     endwhile;
-    
   ?>
   </div>
   <!-- end of container div -->

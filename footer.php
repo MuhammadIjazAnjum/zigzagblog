@@ -138,17 +138,6 @@ footer.php
     </clipPath>
   </svg>
 </div> <!--  .svg-shapes -->
-
-<script>
-// $(window).scroll(function(){
-//   if ($(window).scrollTop() >= 300) {
-//     $('nav').addClass('fixed-header');
-//   }
-//   else {
-//     $('nav').removeClass('fixed-header');
-//   }
-// });
-</script>
 <?php wp_footer(); ?>
 </body>
 </html>

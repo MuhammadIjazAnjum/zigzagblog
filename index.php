@@ -4,9 +4,6 @@
 ***************************/
 ?>
 <?php get_header();?>
-
-
-
 <div class="zigzag-posts_2 py-5 ">
   <div class="container" >
   <?php 
@@ -19,8 +16,6 @@
         }else{
           $class_left_right='grid_post_full caption_left flex-md-row-reverse d-lg-flex';
         }
-  
-  
   if(has_post_format('aside')):
     require get_template_directory().'/template-parts/content-aside.php';
   elseif(has_post_format('gallery')):
