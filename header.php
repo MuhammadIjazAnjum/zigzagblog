@@ -12,7 +12,7 @@ header index and footer index.php
   </head>
 
   <body class="animated " <?php body_classes(); ?> >
-    <?php wp_body_open(); ?>
+    <?php wp_body_open(); ?> 
     <header class="wpb_header header-3 " id="myHeader">
       
       <nav class="main-nav">

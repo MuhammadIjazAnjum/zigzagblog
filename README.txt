@@ -36,9 +36,9 @@
 == Changelog == 
 	
 	version: 1.1.9	
-		. show more dispalys nest posts.
+		. show more dispalys next posts.
 		. accompanied gettext call with translators  
-		.  
+		.  added wp_body_open() in body tag
 	version: 1.1.8	
 		.Formated and updated readme.txt.
 		.Compressed and validated the screenshot and other images  
