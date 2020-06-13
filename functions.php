@@ -16,15 +16,19 @@ if ( version_compare( $GLOBALS['wp_version'], '5.1.1', '<' ) ) {
 if(!function_exists('zigzagblog_setup')){
 
 	function zigzagblog_setup(){
-		load_theme_textdomain('zigzagblog', get_template_directory() . '/languages');
-	$args = array(
-		'search-form',
-		'comment-form',
-		'comment-list',
-		'gallery',
-		'caption',
-	);
-	add_theme_support( 'html5', $args );
+	load_theme_textdomain('zigzagblog', get_template_directory() . '/languages');
+	
+	
+		
+		$defaults = array(
+			'search-form',
+			'comment-form',
+			'comment-list',
+			'gallery',
+			'caption',
+		);
+	add_theme_support( 'html5', $defaults );
+	
 	add_theme_support( 'automatic-feed-links' );
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'post-thumbnails' );
@@ -51,7 +55,6 @@ if(!function_exists('zigzagblog_setup')){
 		'gallery',
 		'caption',
 	) );
-
 	
 	// Enable support for Custom Logo.
 	add_theme_support( 'custom-logo',
@@ -62,6 +65,14 @@ if(!function_exists('zigzagblog_setup')){
 		'flex-height'  => false,
 		'header-text' => array( 'site-title', 'site-description' ),
 	) );
+		$defaults = array(
+		'default-color'          => 'ffffff',
+		'wp-head-callback'       => '_custom_background_cb',
+		'admin-head-callback'    => '',
+		'admin-preview-callback' => ''
+		);
+	add_theme_support( 'custom-background', $defaults );
+	
 	// Editor Style.
 	add_editor_style(  '/css/editor-style.css'  );
 	}

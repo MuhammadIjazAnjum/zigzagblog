@@ -5,7 +5,7 @@ footer.php
 ?>
 <?php if (is_home()):  ?>
 <div class="home-post-section pt-sm-5 pb-5">
-      <p class="more-btn text-uppercase" style="width:280px;"><?php posts_nav_link('&#8734;','Show latest','Show More'); ?></p>
+      <p class="more-btn text-uppercase" style="width:280px;"><?php posts_nav_link('&#8734;', __( 'Show latest', 'zigzagblog' ),__( 'Show More', 'zigzagblog' )); ?></p>
       
 </div>
 <?php endif; ?>
@@ -34,11 +34,11 @@ footer.php
 
       <!-- Author -->
       <div class="col-md-12 col-lg-4 author_">
-        <h3 class="text-uppercase text-center"><?php echo get_theme_mod('zigzagblog_author_heading'); ?></h3>
+        <h3 class="text-uppercase text-center"><?php echo esc_html(get_theme_mod('zigzagblog_author_heading')); ?></h3>
           <div class="col-md-12 text-center">
-            <img src="<?php echo get_theme_mod('zigzagblog_author_img'); ?>" class="rounded-circle">
-            <h2><a href="#"><?php echo get_theme_mod('author_text_setting'); ?></a></h2>
-            <p><?php echo get_theme_mod('author_desc_setting'); ?></p>
+            <img src="<?php echo esc_attr(get_theme_mod('zigzagblog_author_img')); ?>" class="rounded-circle">
+            <h2><a href="#"><?php echo esc_html(get_theme_mod('author_text_setting')); ?></a></h2>
+            <p><?php echo esc_html(get_theme_mod('author_desc_setting')); ?></p>
             <ul class="footer_social mb-0 text-md-center">
                               <?php if(get_theme_mod('zigzagblog_twitter_url','https://www.twitter.com') != ''):?>
               <li><a href="<?php echo esc_url(get_theme_mod('zigzagblog_twitter_url')) ;?>" class="fa fa-twitter"></a></li>

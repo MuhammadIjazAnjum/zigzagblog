@@ -47,8 +47,10 @@
         endif;
           paginate_comments_links();
         ?>
+        <?php if ( is_singular() ) wp_enqueue_script( "comment-reply" ); ?>
         <!-- end of comment -->
       </div>
+      <?php wp_link_pages();?>
     </div>
   </div>
   <?php endwhile;?>

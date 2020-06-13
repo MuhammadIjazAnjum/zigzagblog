@@ -1,5 +1,5 @@
 
-<div   class="<?php echo $class_left_right ;?>"  >
+<div   class="<?php echo esc_attr($class_left_right) ;?>"  >
     <?php if (has_post_thumbnail($post)):?>
       <div class="col-md-12 col-lg-6 no_pad_">
         <a href="<?php echo esc_url( get_permalink() );?>" class="animateIt thumb_grid_post animateIt ae-1 imIn " style="background-image: url(<?php echo esc_url(get_the_post_thumbnail_url( $post )); ?>)">
@@ -14,7 +14,7 @@
             echo '<p class="text-gray-dark"> '.esc_html(the_category(', ','')).'</p>';
           ?>
           <ul class="field_meta">
-            <li><a href="<?php echo esc_url( get_permalink() );?>"><?php echo esc_html(get_comments_number());?> <?php esc_html_e('Comments ooo','zigzagblog');?></a></li>
+            <li><a href="<?php echo esc_url( get_permalink() );?>"><?php echo esc_html(get_comments_number());?> <?php esc_html_e('Comments','zigzagblog');?></a></li>
             <li><a href="<?php echo esc_url( get_permalink() );?>"><?php echo the_date(get_option('date_format'));?></a></li>
           </ul>
         </div>

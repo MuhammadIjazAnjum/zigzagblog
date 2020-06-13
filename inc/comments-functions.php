@@ -11,8 +11,8 @@ function zigzagblog_comments_callback( $comment, $args, $depth)
        <?php echo get_avatar( $comment->comment_author_email ); ?>
     </div>
     <div class="col-md-10 mt-md-5 comment_class()">
-      <p class="user_name mb-0"><?php echo $comment->comment_author;?></p>
-        <p class="mb-3"><a class="" href="<?php esc_url( get_permalink() );?>"><?php echo get_comment_date(get_option('date_format'));?> </a>
+      <p class="user_name mb-0"><?php echo esc_html($comment->comment_author);?></p>
+        <p class="mb-3"><a class="" href="<?php esc_url( get_permalink() );?>"><?php echo esc_html(get_comment_date(get_option('date_format')));?> </a>
       </p>
       <p class="comment-content"><?php comment_text(); ?>  </p>
       <!-- <a href="#" class="reply_btn">REPLY</a> -->
@@ -35,7 +35,7 @@ function zigzagblog_comments_callback( $comment, $args, $depth)
           '<p class="comment-form-url col-md-12"> <input id="url" name="url" type="url" value="' . esc_attr( $commenter['comment_author_url'] ) .
           '" size="30" maxlength="200" placeholder="Web Site" /></p>',
         'comment_field' =>  '<p class="comment-form-comment"><label for="comment"> </label><textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" aria-required="true" required="required" placeholder="Comment *" ></textarea></p>',
-        'comment_notes_before'=> '<p class="comment-notes">' . __( 'Your email address will not be published.' ) . ( $req ? $required_text : '' ) . '</p>',
+        'comment_notes_before'=> '<p class="comment-notes">' . __( 'Your email address will not be published.','zigzagblog' ) . ( $req ? $required_text : '' ) . '</p>',
       );
       $comment_args=array(
         'fields'                =>  $fields,

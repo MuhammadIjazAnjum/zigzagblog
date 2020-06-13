@@ -16,16 +16,10 @@
         }else{
           $class_left_right='grid_post_full caption_left flex-md-row-reverse d-lg-flex';
         }
-  if(has_post_format('aside')):
-    require get_template_directory().'/template-parts/content-aside.php';
-  elseif(has_post_format('gallery')):
-    require get_template_directory().'/template-parts/content-gallery.php';
-  else:
-    require get_template_directory().'/template-parts/content.php';
-  endif;
-    endwhile;
+        include get_template_directory().'/template-parts/content.php';
+      endwhile;
     else:
-      get_template_part( 'template-parts/content', 'none' );
+      include get_template_part( 'template-parts/content', 'none' );
     endif;
   ?>
   </div>

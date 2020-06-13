@@ -11,12 +11,13 @@ header index and footer index.php
     <?php wp_head(); ?>	
   </head>
 
-  <body class="animated " <?php body_class(); ?> >
+  <body class="animated " <?php body_classes(); ?> >
+    <?php wp_body_open(); ?>
     <header class="wpb_header header-3 " id="myHeader">
       
       <nav class="main-nav">
         <span class="menu_btn fa fa-align-justify"></span>
-        <form method="get" class="search_form" action="<?php echo get_home_url('/') ?>">
+        <form method="get" class="search_form" action="<?php echo esc_url(get_home_url('/')) ?>">
           <div class="closebtn fa fa-times"></div>
           <input name="s" id="s" type="search" placeholder="type keyword.." value="<?php  echo get_search_query() ?>">
           <input type="submit" hidden="hidden">
@@ -75,17 +76,17 @@ header index and footer index.php
 
         <?php if (get_theme_mod('zigzagblog_slideshow_img1')!=''): ?>
         <div class="slide">
-          <img src="<?php echo get_theme_mod('zigzagblog_slideshow_img1'); ?>" alt="" class="img-fluid">
+          <img src="<?php echo esc_url(get_theme_mod('zigzagblog_slideshow_img1')); ?>" alt="" class="img-fluid">
         </div>
         <?php endif;?>
         <?php if (get_theme_mod('zigzagblog_slideshow_img2')!=''): ?>
         <div class="slide">
-          <img src="<?php  echo get_theme_mod('zigzagblog_slideshow_img2'); ?>" alt="" class="img-fluid">
+          <img src="<?php  echo esc_url(get_theme_mod('zigzagblog_slideshow_img2')); ?>" alt="" class="img-fluid">
         </div>
         <?php endif;?>
         <?php if (get_theme_mod('zigzagblog_slideshow_img3')!=''): ?>
         <div class="slide">
-          <img src="<?php  echo get_theme_mod('zigzagblog_slideshow_img3'); ?>" alt="" class="img-fluid">
+          <img src="<?php  echo esc_url(get_theme_mod('zigzagblog_slideshow_img3')); ?>" alt="" class="img-fluid">
         </div>
         <?php endif;?>
       </div>

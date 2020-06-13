@@ -15,15 +15,16 @@
 
     // Slides 
     $wp_customize->add_section('zigzagblog_slideshow',array(
-        'title'         => __('Slides'),
-        'description'   => sprintf(__('Recommended size 1024 X 439 for slides'),'zigzagblog'),
+        'title'         => __('Slides','zigzagblog'),
+        'description'   => sprintf(__('Recommended size 1024 X 439 for slides','zigzagblog')),
         'priority'      => 20,
     ));
 
     // Showcase Image1
     $wp_customize->add_setting('zigzagblog_slideshow_img1',
         array(
-        'default'           => get_bloginfo( 'template_directory').'/img/banner4.jpg',
+        'default'           =>   esc_url( get_template_directory_uri() ) .'/img/banner4.jpg',
+        'sanitize_callback' => 'absint',
     ));
     // image control
     $wp_customize->add_control( new  WP_Customize_Image_Control( $wp_customize,'zigzagblog_slideshow_img1' ,array(
@@ -35,7 +36,8 @@
     )));
     // Showcase Image 2
     $wp_customize->add_setting('zigzagblog_slideshow_img2',array(
-        'default'       => get_bloginfo( 'template_directory').'/img/banner2.jpg',
+        'default'       =>    esc_url( get_template_directory_uri() ) .'/img/banner2.jpg',
+        'sanitize_callback' => 'absint',
     ));
     //image control
     $wp_customize->add_control( new Wp_Customize_Image_Control( $wp_customize,'zigzagblog_slideshow_img2' ,array(
@@ -46,7 +48,8 @@
     )));
     // Showcase Image 3
     $wp_customize->add_setting('zigzagblog_slideshow_img3',array(
-        'default'       => get_bloginfo( 'template_directory').'/img/banner3.jpg',
+        'default'       =>    esc_url( get_template_directory_uri() ) .'/img/banner3.jpg',
+        'sanitize_callback' => 'absint',
     ));
     //image control
     $wp_customize->add_control( new Wp_Customize_Image_Control( $wp_customize,'zigzagblog_slideshow_img3' ,array(
@@ -65,57 +68,62 @@
     
     // Twitter 
     $wp_customize->add_setting('zigzagblog_twitter_url',array(
-        'default'       => _x('https://www.twitter.com','zigzagblog'),
+        'default'               => __('https://www.twitter.com','zigzagblog'),
+        'sanitize_callback'     =>'esc_url_raw',
     ));
     // Twitter  control
     $wp_customize->add_control('zigzagblog_twitter_url',array(
-        'label'         => 'Twitter (https://www.twitter.com)',
+        'label'         => __('Twitter (https://www.twitter.com)','zigzagblog'),
         'section'       => 'zigzagblog_social',
         'priority'      =>1,
     ));
     
     // Facebook 
     $wp_customize->add_setting('zigzagblog_facebook_url',array(
-        'default'       => _x('https://www.facebook.com','zigzagblog'),
+        'default'       => __('https://www.facebook.com','zigzagblog'),
+        'sanitize_callback'     =>'esc_url_raw',
     ));
     // Facebook control
     $wp_customize->add_control('zigzagblog_facebook_url',array(
-        'label'         => 'Facebook (https://www.facebook.com)',
+        'label'         => __('Facebook (https://www.facebook.com)','zigzagblog'),
         'section'       => 'zigzagblog_social',
         'priority'      =>2,
     ));
 
     // LinkedIn 
     $wp_customize->add_setting('zigzagblog_linkedin_url',array(
-        'default'       => _x('https://www.linkedin.com','zigzagblog'),
+        'default'       => __('https://www.linkedin.com','zigzagblog'),
+        'sanitize_callback'     =>'esc_url_raw',
     ));
     // LinnkedIn control
     $wp_customize->add_control('zigzagblog_linkedin_url',array(
-        'label'         => 'LinkedIn (https://www.linkedin.com)',
+        'label'         => __('LinkedIn (https://www.linkedin.com)','zigzagblog'),
         'section'       => 'zigzagblog_social',
         'priority'      =>3,
     ));
 
     // Google+ 
     $wp_customize->add_setting('zigzagblog_googleplus_url',array(
-        'default'       => _x('https://aboutme.google.com/','zigzagblog'),
+        'default'       => __('https://aboutme.google.com/','zigzagblog'),
+        'sanitize_callback'     =>'esc_url_raw',
     ));
     // Google+  control
     $wp_customize->add_control('zigzagblog_googleplus_url',array(
-        'label'         => 'Google+ (https://www.aboutme.google.com)',
+        'label'         => __('Google+ (https://www.aboutme.google.com)','zigzagblog'),
         'section'       => 'zigzagblog_social',
         'priority'      =>4,
     ));
 
     // Author Customization 
     $wp_customize->add_section('zigzagblog_author',array(
-        'title'         => __('Author'),
-        //'description'   => sprintf(__('Options for showcase area'),'zigzagblog'),
+        'title'         => __('Author','zigzagblog'),
+        'sanitize_callback'=>'sanitize_text_field',
         'priority'      => 40,
     ));
     // Author Heading setting
     $wp_customize->add_setting('zigzagblog_author_heading',array(
-        'default'       => _x('About Author','zigzagblog'),
+        'default'       => __('About Author','zigzagblog'),
+        'sanitize_callback'=>'sanitize_text_field',
     ));
     //Author Heading Control
     $wp_customize->add_control('zigzagblog_author_heading',array(
@@ -127,7 +135,8 @@
 
     // Author Image
     $wp_customize->add_setting('zigzagblog_author_img',array(
-        'default'       => get_bloginfo( 'template_directory').'/img/author.jpg',
+        'default'       => esc_url(get_template_directory_uri()).'/img/author.jpg',
+        'sanitize_callback'=>'absint',
     ));
     //Author Image control
     
@@ -140,7 +149,8 @@
 
     // Author Text setting
     $wp_customize->add_setting('author_text_setting',array(
-        'default'       =>_x('zigzagblog Text','zigzagblog'),
+        'default'       =>__('zigzagblog Text','zigzagblog'),
+        'sanitize_callback'=>'sanitize_text_field',
     ));
     // Author Text Control
     $wp_customize->add_control('author_text_setting',array(
@@ -152,7 +162,8 @@
     
     // Author Descripton setting
     $wp_customize->add_setting('author_desc_setting',array(
-        'default'       =>_x('zigzagblog Text','zigzagblog'),
+        'default'       =>__('zigzagblog Text','zigzagblog'),
+        'sanitize_callback'=>'sanitize_text_field',
     ));
     // Author Text Control
     $wp_customize->add_control('author_desc_setting',array(
