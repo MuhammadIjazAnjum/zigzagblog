@@ -1,6 +1,6 @@
 <?php
 /**************************
-header index and footer index.php
+header 
 ***************************/
 ?>
 <!DOCTYPE html>
@@ -11,7 +11,7 @@ header index and footer index.php
     <?php wp_head(); ?>	
   </head>
 
-  <body class="animated " <?php body_classes(); ?> >
+  <body class="animated " <?php body_class(); ?>  >
     <?php wp_body_open(); ?> 
     <header class="wpb_header header-3 " id="myHeader">
       
@@ -71,7 +71,7 @@ header index and footer index.php
     </header>
 
     	<main class="wpb_main">
-      <?php //if(is_front_page()): ?>
+      <?php if(is_front_page()): ?>
       <div class="main_banner_slider " >
 
         <?php if (get_theme_mod('zigzagblog_slideshow_img1')!=''): ?>
@@ -90,4 +90,4 @@ header index and footer index.php
         </div>
         <?php endif;?>
       </div>
-      <?php //endif;?>
+      <?php endif;?>

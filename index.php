@@ -1,6 +1,6 @@
 <?php
 /**************************
- INDEX
+ INDEX 
 ***************************/
 ?>
 <?php get_header();?>
@@ -12,14 +12,16 @@
       while (have_posts()): the_post();
         $i++;
         if($i % 2 !=0){
-          $class_left_right='grid_post_full caption_left  d-lg-flex ';
+          $post_orientation='grid_post_full caption_left  d-lg-flex ';
         }else{
-          $class_left_right='grid_post_full caption_left flex-md-row-reverse d-lg-flex';
+          $post_orientation='grid_post_full caption_left flex-md-row-reverse d-lg-flex';
         }
-        include get_template_directory().'/template-parts/content.php';
+        set_query_var( 'post_orientation',  $post_orientation );
+        get_template_part( '/template-parts/content', get_post_format() );
+        // get_template_directory().'/template-parts/content.php';
       endwhile;
     else:
-      include get_template_part( 'template-parts/content', 'none' );
+       get_template_part( 'template-parts/content', 'none' );
     endif;
   ?>
   </div>

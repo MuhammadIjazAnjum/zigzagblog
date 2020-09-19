@@ -60,11 +60,36 @@
     )));
     
     // Social Sections
+    
+
+
     $wp_customize->add_section('zigzagblog_social',array(
         'title'         => __('Social','zigzagblog'),
         'description'   => sprintf('Socail Media','zigzagblog'),
          'priority'      =>30,
     ));
+
+
+    // Enable social links on display
+        $wp_customize->add_setting( 'zigzagblog_social_checkbox', array(
+        'default'    => '1',
+        'sanitize_callback'     =>'absint',
+        ));
+
+        // Display checkbox  Control
+        $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'zigzagblog_social_checkbox',
+            array(
+                'label'     => __('Enable Social Links and Icons ', 'zigzagblog'),
+                'section'   => 'zigzagblog_social',
+                'settings'  => 'zigzagblog_social_checkbox',
+                'type'      => 'checkbox',
+                'priority' => 1,
+            )
+        )
+    );
     
     // Twitter 
     $wp_customize->add_setting('zigzagblog_twitter_url',array(

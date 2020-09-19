@@ -48,13 +48,13 @@ p{
   background-color: transparent;
 }*/
 .wpb_header .wpb_menu a{
-  color: #fff;
+  color: #DCDCDC;
 }
 .wpb_header .wpb_menu > li:not(:last-child) > a:after{
   background-color: #fff;
 }
 .wpb_header .wpb_menu a:hover {
-  color: #fff;
+  color: #DCDCDC;
 }
 .wpb_header .wpb_menu li ul a{
   background-color: #a00769;
@@ -76,7 +76,7 @@ p{
   color: #fff;
 }
 .wpb_header .menu_btn{
-  color: #fff;
+  color: #DCDCDC;
 }
 .search_form input[type="search"]{
   background: #fff;

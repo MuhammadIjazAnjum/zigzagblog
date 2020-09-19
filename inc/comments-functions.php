@@ -39,7 +39,7 @@ function zigzagblog_comments_callback( $comment, $args, $depth)
       );
       $comment_args=array(
         'fields'                =>  $fields,
-        'comment_field'         =>'',
+         'comment_field'         =>'',
         'comment_notes_before'  =>'',
         );
       comment_form($comment_args);

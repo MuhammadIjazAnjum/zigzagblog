@@ -194,32 +194,7 @@ blockquote:after{
     text-transform: uppercase;
     clip-path: url(#clipping-right);
 }
-/*.post-tags-right a:after{
-    content: '';
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 18px 0 18px 10px;
-    border-color: transparent transparent transparent #000000;
-    position: absolute;
-    top: 0;
-    left: 100%;
-    -webkit-transition: all .4s;
-    transition: all .4s;
-}*/
-/*.post-tags-left a:before{
-    content: '';
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 18px 10px 18px 0;
-    border-color: transparent #000000 transparent transparent;
-    position: absolute;
-    top: 0;
-    right: 100%;
-    -webkit-transition: all .4s;
-    transition: all .4s;
-}*/
+
 .post-tags-left a{
     clip-path: url(#clipping-left);
     margin-right: 0;

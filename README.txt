@@ -36,9 +36,16 @@
 == Changelog == 
 	
 	version: 1.1.9	
-		. show more dispalys next posts.
+		. SHOWMORE on homepage dispalys next posts.
 		. accompanied gettext call with translators  
-		.  added wp_body_open() in body tag
+		. added wp_body_open() in body tag
+		. enhanced the layout and added page feature
+		. seach form works properly . 
+		.
+		.
+		.
+		. Change bloggy , top menu color and size 
+
 	version: 1.1.8	
 		.Formated and updated readme.txt.
 		.Compressed and validated the screenshot and other images  

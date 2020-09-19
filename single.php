@@ -7,7 +7,7 @@
   <?php while(have_posts()):the_post(); ?>
   <div class="zigzag-posts_2 py-5">
     <div id="post-<?php the_ID(); ?>" <?php post_class(); ?> class="container" >
-      <div class="row">
+      <div class="row page">
         <div class="col-md-9 text-center m-auto" >
         <?php if (has_post_thumbnail($post)):?>
           <img src="<?php echo esc_url(get_the_post_thumbnail_url( $post )); ?>" class="w-100">
@@ -26,7 +26,8 @@
             </ul>
           </div>
         </div>
-        <div class="col-md-9 m-auto post_section_" >
+        <?php if(is_active_sidebar('sidebar')) : ?>
+        <div class="col-md-8 m-auto post_section_ text-justify" style="padding:50px " >
           <?php 
             the_title('<h2 class="my-3 text-uppercase">','</h2>');
             echo esc_html(the_content(  __( ' <p ></p>', 'zigzagblog' )))  ;
@@ -39,7 +40,7 @@
               <a href="#/" class="fa fa-instagram"></a>
             </li>
           </ul>
-        </div>
+        
         <!-- comment -->
         <?php
         if ( comments_open(  )  ) :
@@ -50,7 +51,40 @@
         <?php if ( is_singular() ) wp_enqueue_script( "comment-reply" ); ?>
         <!-- end of comment -->
       </div>
+      <div class="col-md-4 text-justify " style="padding:50px">
+          
+              <?php dynamic_sidebar('sidebar'); ?>
+            
+      </div>
+      <?php else:?>
+        <div class="col-md-9 m-auto post_section_ text-justify" style="padding:50px " >
+          <?php 
+            the_title('<h2 class="my-3 text-uppercase">','</h2>');
+            echo esc_html(the_content(  __( ' <p ></p>', 'zigzagblog' )))  ;
+          ?>
+          <ul class="social_commands mb-5">
+            <li><a href="" class="fa fa-comment"> <?php esc_html_e('comments','zigzagblog')?></a></li>
+            <li><a href=""><?php esc_html_e('Share','zigzagblog');?></a>
+              <a href="#/" class="fa fa-twitter"></a>
+              <a href="#/" class="fa fa-facebook"></a>  
+              <a href="#/" class="fa fa-instagram"></a>
+            </li>
+          </ul>
+        
+        <!-- comment -->
+        <?php
+        if ( comments_open(  )  ) :
+          comments_template();
+        endif;
+          paginate_comments_links();
+        ?>
+        <?php if ( is_singular() ) wp_enqueue_script( "comment-reply" ); ?>
+        <!-- end of comment -->
+      </div>
+
+      <?php endif; ?>
       <?php wp_link_pages();?>
+      </div>
     </div>
   </div>
   <?php endwhile;?>

@@ -3,28 +3,18 @@
 footer.php
 ***************************/
 ?>
-<?php if (is_home()):  ?>
+
 <div class="home-post-section pt-sm-5 pb-5">
       <p class="more-btn text-uppercase" style="width:280px;"><?php posts_nav_link('&#8734;', __( 'Show latest', 'zigzagblog' ),__( 'Show More', 'zigzagblog' )); ?></p>
       
 </div>
-<?php endif; ?>
-<div class=" d-flex social_btn animateIt ">
-  <div class="col-md-12  text-center py-5 ">
-    <?php if(get_theme_mod('zigzagblog_twitter_url','https://www.twitter.com') != ''):?>
-    <a href="<?php echo esc_attr(get_theme_mod('zigzagblog_twitter_url')) ;?>"><i class="fa fa-twitter" aria-hidden="true"></i> <?php  esc_html_e('Twitter','zigzagblog'); ?></a>
-    <?php endif;?>
-    <?php if(get_theme_mod('zigzagblog_facebook_url','https://www.facebook.com') != ''):?>
-    <a href="<?php echo esc_attr(get_theme_mod('zigzagblog_facebook_url') );?>"><i class="fa fa-facebook" aria-hidden="true"></i> <?php esc_html_e('Facebook','zigzagblog');?></a>
-    <?php endif;?>
-    <?php if(get_theme_mod('zigzagblog_linkedin_url','https://www.linkedin.com') != ''):?>
-    <a href="<?php echo esc_attr(get_theme_mod('zigzagblog_linkedin_url') );?>"><i class="fa fa-linkedin" aria-hidden="true"></i> <?php esc_html_e('linkedinnn','zigzagblog');?></a>
-    <?php endif;?>
-    <?php if(get_theme_mod('zigzagblog_googleplus_url','https://www.aboutme.google.com') != ''):?>
-    <a href="<?php echo esc_attr(get_theme_mod('zigzagblog_googleplus_url')) ;?>"><i class="fa fa-google-plus" aria-hidden="true"></i> <?php esc_html_e('google+','zigzagblog');?></a>
-    <?php endif;?>
-  </div>
-</div>
+
+<?php 
+  if (get_theme_mod('zigzagblog_social_checkbox',1)) {
+        get_template_part( '/template-parts/social', 'links' ); 
+    }
+  ?>
+
 
 
 <div class="d-flex footer_top">
@@ -40,18 +30,11 @@ footer.php
             <h2><a href="#"><?php echo esc_html(get_theme_mod('author_text_setting')); ?></a></h2>
             <p><?php echo esc_html(get_theme_mod('author_desc_setting')); ?></p>
             <ul class="footer_social mb-0 text-md-center">
-                              <?php if(get_theme_mod('zigzagblog_twitter_url','https://www.twitter.com') != ''):?>
-              <li><a href="<?php echo esc_url(get_theme_mod('zigzagblog_twitter_url')) ;?>" class="fa fa-twitter"></a></li>
-              <?php endif;?>
-              <?php if(get_theme_mod('zigzagblog_facebook_url','https://www.facebook.com') != ''):?>
-              <li><a href="<?php echo esc_url(get_theme_mod('zigzagblog_facebook_input')) ;?>" class="fa fa-facebook"></a></li>
-              <?php endif;?>
-              <?php if(get_theme_mod('zigzagblog_linkedin_url','https://www.linkedin.com') != ''):?>
-              <li><a href="<?php echo esc_attr(get_theme_mod('zigzagblog_linkedin_url') );?>" class="fa fa-linkedin"></a></li>
-              <?php endif;?>
-              <?php if(get_theme_mod('zigzagblog_googleplus_url','https://www.aboutme.google.com') != ''):?>
-              <li><a href="<?php echo esc_attr(get_theme_mod('zigzagblog_googleplus_url')) ;?>"class="fa fa-google-plus"></a></li>
-          <?php endif;?>
+              <?php
+          if (get_theme_mod('zigzagblog_social_checkbox',1)) {
+            get_template_part( '/template-parts/social', 'fas' ); 
+          }
+          ?>
             </ul>
           </div>
       </div>
@@ -81,21 +64,11 @@ footer.php
       </div>
       <div class="col-lg-4 col-md-6 mt-4 mt-md-0">
         <ul class="footer_social mb-0 text-md-center">
-          <?php if(get_theme_mod('zigzagblog_twitter_url','https://www.twitter.com') != ''):?>
-          <li><a href="<?php echo esc_url(get_theme_mod('zigzagblog_twitter_url')) ;?>" class="fa fa-twitter"></a></li>
-          <?php endif;?>
-          <?php if(get_theme_mod('zigzagblog_facebook_url','https://www.facebook.com') != ''):?>
-          <li><a href="<?php echo esc_url(get_theme_mod('zigzagblog_facebook_input')) ;?>" class="fa fa-facebook"></a></li>
-          <?php endif;?>
-          <?php if(get_theme_mod('zigzagblog_linkedin_url','https://www.linkedin.com') != ''):?>
-          <li><a href="<?php echo esc_attr(get_theme_mod('zigzagblog_linkedin_url') );?>" class="fa fa-linkedin"></a></li>
-          <?php endif;?>
-          <?php if(get_theme_mod('zigzagblog_googleplus_url','https://www.aboutme.google.com') != ''):?>
-          <li><a href="<?php echo esc_attr(get_theme_mod('zigzagblog_googleplus_url')) ;?>"class="fa fa-google-plus"></a></li>
-          <?php endif;?>
-
-          
-          
+          <?php
+          if (get_theme_mod('zigzagblog_social_checkbox',1)) {
+            get_template_part( '/template-parts/social', 'fas' ); 
+          }
+          ?>
         </ul>
       </div>
       <div class="col-lg-4 col-md-6  mt-md-0 subscribe_footer">

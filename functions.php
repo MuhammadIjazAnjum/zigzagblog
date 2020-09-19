@@ -46,9 +46,10 @@ if(!function_exists('zigzagblog_setup')){
 		'flex-height'        => false,
 		'header-text'        => true,
 		'uploads'            => false,
-		'wp-head-callback'      => 'zigzagblog_header_cb',
+		// 'wp-head-callback'      => 'zigzagblog_header_cb',
 	);
-	add_theme_support( 'custom-header', $args );
+	// add_theme_support( 'custom-header', $args );
+	
 	add_theme_support( 'html5', array(
 		'comment-form',
 		'comment-list',
@@ -65,11 +66,17 @@ if(!function_exists('zigzagblog_setup')){
 		'flex-height'  => false,
 		'header-text' => array( 'site-title', 'site-description' ),
 	) );
-		$defaults = array(
-		'default-color'          => 'ffffff',
-		'wp-head-callback'       => '_custom_background_cb',
-		'admin-head-callback'    => '',
-		'admin-preview-callback' => ''
+		// Enable support for Customer background.
+	 $defaults = array(
+	 	'default-color'      => '000',
+    
+    'default-position-x' => 'right',
+    'default-position-y' => 'top',
+    'default-repeat'     => 'no-repeat',  
+		
+		// 'wp-head-callback'       => '_custom_background_cb',
+		// 'admin-head-callback'    => '',
+		// 'admin-preview-callback' => ''
 		);
 	add_theme_support( 'custom-background', $defaults );
 	
@@ -82,6 +89,14 @@ if(!function_exists('zigzagblog_setup')){
 	// zigzagblog footer sidebbar widgets
 	// ***************************************/
 	function zigzagblog_register_sidebars() {
+		register_sidebar(array(
+		'name'	=> 'Sidebar',
+		'id'	=> 'sidebar',
+		'before_widget'	=> '<div class="  sidebar-widget "> ',
+		'after_widget'	=> '</div>',
+		'before_title'	=> '<h3 class="text-uppercase text-center ">',
+		'after_title'	=> '</h3>'
+	));
 		// Footer Side Bar 
 		register_sidebar(array(
 			'name'			=>'Footer Sidebar',
@@ -111,11 +126,11 @@ if(!function_exists('zigzagblog_setup')){
 	// ***************************************/
 	function zigzagblog_styles_scripts() {
 		//zigzagblog stylesheet
-		wp_enqueue_style( 'zigzagblog-style', get_stylesheet_uri(), false, '4.0.7' );
+		wp_enqueue_style( 'zigzagblog-style', get_stylesheet_uri(), false );
 		wp_enqueue_style( 'zigzagblog-google-font', 'https://fonts.googleapis.com/css?family=Lato:400,700|Playfair+Display:400,700,900', false );
 		wp_enqueue_style( 'google-font-oswald', 'https://fonts.googleapis.com/css?family=Oswald', false );
 		wp_enqueue_style( 'google-font-lora', 'https://fonts.googleapis.com/css?family=Lora', false );
-		wp_enqueue_style( 'zigzagblog-style-css', ZIGZAGBLOG_DIR_URI .'css/zigzagblog-style.css' ,array(), '1.0') ;
+		 wp_enqueue_style( 'zigzagblog-style-css', ZIGZAGBLOG_DIR_URI .'css/zigzagblog-style.css' ,array(), '1.0') ;
 		wp_enqueue_style( 'zigzagblog-color-style', ZIGZAGBLOG_DIR_URI .'css/colors.css' ,array(), '1.0') ;
 		wp_enqueue_style( 'font-awesome', ZIGZAGBLOG_DIR_URI . 'css/font-awesome/css/font-awesome.min.css', false, '4.7.0' );
 		//zigzagblog color scheeme
